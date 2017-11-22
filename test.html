@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+<script>
+    function test(){
+        var sex = document.getElementsByName("a1");
+        var flag = 0;
+        for (var i=0;i<sex.length;i++)
+        {
+            if (sex[i].checked == true)
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if (!flag)
+        {
+            alert("请答题");
+        }
+    }
+</script>
+<form action="zhuce.html">
+    <div id="option" >
+        <div id="options"> <input type="radio" name="a1"  /> 非常满意</div>
+        <div id="options"> <input type="radio" name="a1" /> 满意</div>
+        <div id="options"> <input type="radio" name="a1"  /> 一般</div>
+        <div id="options"> <input type="radio" name="a1"  /> 不太满意</div>
+        <div id="options"> <input type="radio" name="a1" /> 非常不满意</div>
+    </div>
+<input type="button" id="btn" value="提交" onclick="test()">
+</form>
