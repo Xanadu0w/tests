@@ -1,0 +1,66 @@
+window.onload=drag;
+function drag() {
+    var box=document.getElementById('box');
+    if (window.sessionStorage){
+        var to=window.sessionStorage.getItem("top"),
+            lef=window.sessionStorage.getItem("left"),
+            widt=window.sessionStorage.getItem("width"),
+            heigh=window.sessionStorage.getItem("height");
+        box.style.top=to;
+        box.style.left=lef;
+        box.style.width=widt;
+        box.style.height=heigh;
+    }
+    var title=document.getElementById('til');
+    title.addEventListener('mousedown',fnDown,false);
+    //title.onmousedown=fnDown;    //拖曳
+
+    box.addEventListener('mouseover',over,false);
+    box.addEventListener('mousedown',doDown,false);
+
+}
+//按下鼠标实现拖拽
+function fnDown(event) {
+    event=event || window.event;
+    var box=document.getElementById('box'),
+        //鼠标按下后光标和面板之间的距离
+        disX=event.clientX-box.offsetLeft,
+        disY=event.clientY-box.offsetTop;
+    //移动
+    function movedrag(event) {
+        fnMove(event,disX,disY);
+    }
+    document.addEventListener("mousemove",movedrag,false);
+    //释放鼠标
+    function moveup() {
+        document.removeEventListener("mousemove",movedrag,false);
+    }
+    document.addEventListener("mouseup",moveup,false);
+}
+
+//移动鼠标实现拖拽
+function fnMove(event,posX,posY) {
+    var box=document.getElementById('box'),
+
+
+//将数据保存到sessionStorage对象中
+function saveToStorage() {
+    if (window.sessionStorage) {
+        var box=document.getElementById('box'),
+            to=box.style.top,
+            lef=box.style.left,
+            widt=box.style.width,
+            heig=box.style.height;
+        window.sessionStorage.setItem("top",to);
+        window.sessionStorage.setItem("left",lef);
+        window.sessionStorage.setItem("width",widt);
+        window.sessionStorage.setItem("height",heig);
+    }
+}
+
+
+
+
+
+
+
